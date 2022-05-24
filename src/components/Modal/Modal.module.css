@@ -1,0 +1,31 @@
+.modal {
+  border: 2px solid #4d90cb;
+  background: #ffffff;
+  overflow: auto;
+  border-radius: 8px;
+  outline: none;
+  width: 800px;
+}
+.overlay {
+  position: fixed;
+  inset: 0px;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.75);
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  z-index: 1050;
+}
+.titleContainer {
+  padding: 16px 20px;
+  background-color: #448bc9;
+}
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+}
+.content {
+  padding: 16px;
+}

@@ -1,0 +1,23 @@
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 0;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-default {
+  background-color: #999;
+  border-color: #999;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  border-color: #2563eb;
+}
+.btn-info {
+  background-color: #5dbfde;
+  border-color: #5dbfde;
+}

@@ -356,3 +356,7 @@ body {
   font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
+
+.text-danger {
+  color: red;
+}

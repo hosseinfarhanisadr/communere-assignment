@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  margin-bottom: 10px;
+}
+.label {
+  display: block;
+  font-weight: 500;
+  padding-right: 8px;
+  width: 30%;
+}
+.mapContainer {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 30vh;
+}

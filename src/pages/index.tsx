@@ -1,11 +1,34 @@
+import { useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import { v4 as uuidv4 } from "uuid";
+import { useAppDispatch } from "store";
+import { LocationFormValues } from "types";
+import { addLocation } from "store/LocationSlice";
+import Button from "components/Button";
+import LocationFormModal from "components/LocationFormModal";
 import styles from "styles/Home.module.css";
 
 const Map = dynamic(() => import("components/Map"), { ssr: false });
 
 const Home: NextPage = () => {
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const dispatch = useAppDispatch();
+
+  const handleOpenAddModal = () => {
+    setIsAddModalOpen(true);
+  };
+
+  const handleCloseAddModal = () => {
+    setIsAddModalOpen(false);
+  };
+
+  const handleAddLocation = (values: LocationFormValues) => {
+    dispatch(addLocation({ ...values, id: uuidv4() }));
+    handleCloseAddModal();
+  };
+
   return (
     <div>
       <Head>
@@ -16,7 +39,21 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <Map />
+        <Button
+          type="button"
+          color="primary"
+          className={styles.addBtn}
+          onClick={handleOpenAddModal}
+        >
+          Add Location
+        </Button>
       </main>
+
+      <LocationFormModal
+        isOpen={isAddModalOpen}
+        onClose={handleCloseAddModal}
+        onSubmit={handleAddLocation}
+      />
     </div>
   );
 };

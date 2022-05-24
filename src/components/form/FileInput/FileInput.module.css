@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.label {
+  display: block;
+  font-weight: 500;
+  padding-right: 8px;
+  width: 30%;
+}
+.uploadContainer {
+  width: 70%;
+}
+.uploadBox {
+  cursor: pointer;
+  border: 1px solid #1977d0;
+}
+
+.uploadTitle {
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #1977d0;
+  font-weight: 600;
+}
+
+.uploadContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #8dbbe9;
+}
+.uploadIcon {
+  height: 70px;
+  width: 70px;
+  fill: #1b78d1;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.input {
+  display: none;
+}
