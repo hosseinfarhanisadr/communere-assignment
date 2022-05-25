@@ -31,7 +31,9 @@ const validationSchema = yup.object({
   type: yup.string().required("Location type is required"),
   logo: yup.mixed().test({
     message: "Logo is required",
-    test: (value) => typeof value === "object" || typeof value === "string",
+    test: (value) =>
+      (typeof value === "object" && value?.length !== 0) ||
+      typeof value === "string",
   }),
 });
 
