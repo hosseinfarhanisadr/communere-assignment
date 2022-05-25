@@ -52,11 +52,13 @@ const Home: NextPage = () => {
         </Button>
       </main>
 
-      <LocationFormModal
-        isOpen={isAddModalOpen}
-        onClose={handleCloseAddModal}
-        onSubmit={handleAddLocation}
-      />
+      {isAddModalOpen && (
+        <LocationFormModal
+          isOpen={isAddModalOpen}
+          onClose={handleCloseAddModal}
+          onSubmit={handleAddLocation}
+        />
+      )}
     </div>
   );
 };
