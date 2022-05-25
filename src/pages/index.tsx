@@ -11,6 +11,7 @@ import LocationFormModal from "components/LocationFormModal";
 import styles from "styles/Home.module.css";
 
 const Map = dynamic(() => import("components/Map"), { ssr: false });
+const Locations = dynamic(() => import("components/Locations"), { ssr: false });
 
 const Home: NextPage = () => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
@@ -38,7 +39,9 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Map />
+        <Map>
+          <Locations />
+        </Map>
         <Button
           type="button"
           color="primary"

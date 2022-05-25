@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { Location, LocationFormValues } from "types";
 import Button from "components/Button";
 import { Input, MapInput, Select, FileInput } from "components/form";
@@ -18,6 +20,21 @@ const defaultValues: Partial<LocationFormValues> = {
   type: "business",
 };
 
+const validationSchema = yup.object({
+  name: yup.string().required("Location name is required"),
+  position: yup
+    .object({
+      lat: yup.string().required(),
+      lng: yup.string().required(),
+    })
+    .required("Location is required"),
+  type: yup.string().required("Location type is required"),
+  logo: yup.mixed().test({
+    message: "Logo is required",
+    test: (value) => typeof value === "object" || typeof value === "string",
+  }),
+});
+
 const LocationFormModal = ({
   edit,
   data,
@@ -33,6 +50,7 @@ const LocationFormModal = ({
     formState: { errors },
   } = useForm<LocationFormValues>({
     defaultValues: edit ? data : defaultValues,
+    resolver: yupResolver(validationSchema),
   });
 
   const handleSave = handleSubmit((values) => {
@@ -54,20 +72,12 @@ const LocationFormModal = ({
         <Input
           label="Location name:"
           error={errors?.name?.message}
-          {...register("name", { required: "Location name is required" })}
+          {...register("name")}
         />
 
-        <MapInput
-          name="position"
-          control={control}
-          label="Location on map:"
-          rules={{ required: "Location is required" }}
-        />
+        <MapInput name="position" control={control} label="Location on map:" />
 
-        <Select
-          label="Location type:"
-          {...register("type", { required: "Location type is required" })}
-        >
+        <Select label="Location type:" {...register("type")}>
           <option value="business">Business</option>
           <option value="home">Home</option>
         </Select>
@@ -76,7 +86,7 @@ const LocationFormModal = ({
           label="Logo:"
           accept="image/*"
           error={errors?.logo?.message}
-          {...register("logo", { required: "Logo is required" })}
+          {...register("logo")}
         />
 
         <div className={styles.actionsContainer}>

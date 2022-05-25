@@ -360,3 +360,6 @@ body {
 .text-danger {
   color: red;
 }
+.map .leaflet-popup-content {
+  margin: 0;
+}

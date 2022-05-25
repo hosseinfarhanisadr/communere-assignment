@@ -1,6 +1,6 @@
 import { MapContainer, MapContainerProps, TileLayer } from "react-leaflet";
+import clsx from "clsx";
 import styles from "./Map.module.css";
-
 import "leaflet/dist/leaflet.css";
 
 const Map = ({
@@ -13,7 +13,7 @@ const Map = ({
       center={center}
       zoom={13}
       scrollWheelZoom={true}
-      className={styles.container}
+      className={clsx(styles.container, "map")}
       {...props}
     >
       <TileLayer

@@ -1,0 +1,25 @@
+.popupContainer {
+  display: block;
+  width: 300px;
+  background-color: #ffffff;
+}
+.popupTitle {
+  padding: 10px;
+  background-color: #e1f0d8;
+  color: #53a055;
+  font-weight: 500;
+  font-size: 18px;
+}
+.popupContent {
+  padding: 10px;
+}
+.locationName {
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

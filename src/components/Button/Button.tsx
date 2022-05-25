@@ -3,7 +3,7 @@ import styles from "./Button.module.css";
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
-  color?: "primary" | "info" | "default";
+  color?: "primary" | "info" | "default" | "warning";
 };
 
 const Button = ({ color = "default", className, ...props }: Props) => {

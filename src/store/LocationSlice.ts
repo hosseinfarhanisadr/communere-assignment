@@ -12,11 +12,18 @@ const LocationSlice = createSlice({
     addLocation: (state, action) => {
       state.push(action.payload);
     },
+    editLocation: (state, action) => {
+      const index = state.findIndex((item) => item.id === action.payload.id);
+
+      if (index !== -1) {
+        state[index] = action.payload;
+      }
+    },
   },
 });
 
 const { actions, reducer } = LocationSlice;
 
-export const { addLocation } = actions;
+export const { addLocation, editLocation } = actions;
 
 export default reducer;
